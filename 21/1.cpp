@@ -24,8 +24,6 @@ public:
         }
         ListNode *current = ret;
 
-        cout << current->val << endl;
-
         while(list1 != nullptr || list2 != nullptr){
             if(list1 == nullptr){
                 current->next = list2;
