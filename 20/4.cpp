@@ -1,13 +1,16 @@
 class Solution {
 public:
+    std::map <char, char> parentheses = { 
+        { '{', '}' }, 
+        { '(', ')' }, 
+        { '[', ']' },
+    };
+
     bool isValid(string s) {
         stack<char> stack;
 
-        if(s[0] == ')' || s[0] == '}' || s[0] == ']'){
-            return false;
-        }
-
         for(char c : s){
+            if(stack.empty() && isCloseParenth(c)){return false;}
             if(!stack.empty() && isInvalidPair(stack.top(), c)){return false;}
             
             if(c != '(' && c != '{' && c != '[' && !stack.empty() && isPair(stack.top(), c)){
@@ -20,10 +23,17 @@ public:
     }
 
     bool isPair(char l, char r){
-        return (l == '(' && r == ')' || l == '{' && r == '}' || l == '[' && r == ']');
+        return parentheses[l] == r;
+    }
+
+    bool isCloseParenth(char c){
+        for(auto p: parentheses){
+            if(p.second == c){return true;}
+        }
+        return false;
     }
 
     bool isInvalidPair(char l, char r){
-        return (l == '(' && (r == '}' || r == ']')) || (l == '{' && (r == ')' || r == ']')) || (l == '[' && (r == '}' || r == ')'));
+        return isCloseParenth(r) && parentheses[l] != r;
     }
 };
