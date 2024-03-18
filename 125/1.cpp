@@ -1,3 +1,4 @@
+// 第1段階のコード
 class Solution {
 public:
     bool isPalindrome(string s) {

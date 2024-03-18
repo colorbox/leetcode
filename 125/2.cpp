@@ -1,3 +1,4 @@
+// 第2段階のコード、第1段階のコードを読みやすくした
 class Solution {
 public:
     bool isPalindrome(string s) {

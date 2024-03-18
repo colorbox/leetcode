@@ -1,3 +1,4 @@
+// 第2段階のコード、3回連続でパスしたもの
 class Solution {
 public:
     bool isPalindrome(string s) {
