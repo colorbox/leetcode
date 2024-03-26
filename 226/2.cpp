@@ -12,19 +12,18 @@
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
-        if (!root) return nullptr;
+        if (!root) { return nullptr; }
 
-        queue<TreeNode*> nodeQueue;
-        nodeQueue.push(root);
+        queue<TreeNode*> node_queue;
+        node_queue.push(root);
 
-        while (!nodeQueue.empty()) {
-            TreeNode* currentNode = nodeQueue.front();
-            nodeQueue.pop();
+        while (!node_queue.empty()) {
+            TreeNode* current_node = node_queue.front();
+            node_queue.pop();
 
-            swap(currentNode->left, currentNode->right);
-
-            if (currentNode->left) {nodeQueue.push(currentNode->left);}
-            if (currentNode->right) {nodeQueue.push(currentNode->right);}
+            swap(current_node->left, current_node->right);
+            if (current_node->left) { node_queue.push(current_node->left); }
+            if (current_node->right) { node_queue.push(current_node->right); }
         }
 
         return root;
