@@ -1,23 +1,22 @@
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        if (target < nums[0] || nums[nums.size()-1] < target) { return -1; }
+        int left = 0;
+        int right = nums.size() - 1;
 
-        int l = -1;
-        int r = nums.size();
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
 
-        while (r - l > 1) {
-            int mid = (l + r) / 2;
-            if (nums[mid] < target) {
-                l = mid;
-            } else {
-                r = mid;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (target < nums[mid]) {
+                right = mid - 1;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
             }
         }
 
-        if (nums[r] == target) { return r; }
-
         return -1;
     }
-
 };
+
