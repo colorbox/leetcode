@@ -1,7 +1,5 @@
 class Solution {
     public:
-    vector<int> direction_rows = {0, 1, 0, -1};
-    vector<int> direction_cols = {1, 0, -1, 0};
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
         if (image[sr][sc] == color) {
             return image;
@@ -22,6 +20,8 @@ class Solution {
 
         pixels[row][col] = to_color;
 
+        const vector<int> direction_rows = {0, 1, 0, -1};
+        const vector<int> direction_cols = {1, 0, -1, 0};
         for (int i = 0; i < 4; i ++) {
             RecursiveFill(pixels, row + direction_rows[i], col + direction_cols[i], from_color, to_color);
         }
