@@ -1,14 +1,12 @@
-// チェック済みのノードを記憶しておく解法のコード
+// insertの返り値を利用して存在確認をする方法
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
         set<ListNode*> reached;
         ListNode* current = head;
         while (current) {
-            if (reached.contains(current)) {
-                return true;
-            }
-            reached.insert(current);
+            auto [it, inserted] = reached.insert(current);
+            if (!inserted) { return true; }
             current = current->next;
         }
         return false;
