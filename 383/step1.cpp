@@ -8,19 +8,19 @@ magazineにある文字を高速にチェックできないといけないので
 magazineに存在しない文字や、消費し尽くした文字を指定されたらransomは成立しなくなるのでその時点でfalseを返せる。
 falseを返さずに最後までチェックし終えたら
 */
+/*
+mapで`[]`を使用することで不要な初期化処理やnullチェックを削除
+*/
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
         map<char, int> character_count;
         for (char c: magazine) {
-            if (!character_count[c]) {
-                character_count[c] = 0;
-            }
             character_count[c]++;
         }
 
         for (char c: ransomNote) {
-            if (!character_count[c] || character_count[c] <= 0) {
+            if (character_count[c] <= 0) {
                 return false;
             }
             character_count[c]--;
