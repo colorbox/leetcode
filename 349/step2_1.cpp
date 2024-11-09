@@ -1,6 +1,8 @@
 /*
 mapで書き直したパターン
-単一のmapでカウントできるのでsetを利用するstepqよりもシンプルになった
+単一のmapでカウントできるのでsetを利用するstep1よりもシンプルになった
+Time: O(N + M)
+Space: 
 */
 class Solution {
 public:

@@ -1,4 +1,10 @@
 /*
+Time: O(N log N + M log M)
+Space: O(N + M)
+
+nums1.size() == N
+nums2.size() == M 
+
 ２つのnumsをソートしてマージソートっぽくする手法
 https://github.com/gcc-mirror/gcc/blob/8762bb1b004c442b8dbb22a6d9eb0b7da4a3e59f/libstdc%2B%2B-v3/include/bits/stl_algo.h#L5208-L5230
 */

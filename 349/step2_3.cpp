@@ -1,5 +1,11 @@
 /*
+`std::set_intersection`を使うパターン
 
+Time : O(N log N + M log M)
+Space: O(N + M)
+
+nums1.size() == N
+nums2.size() == M 
 */
 class Solution {
 public:
