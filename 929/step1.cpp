@@ -11,7 +11,7 @@ class Solution {
 public:
   int numUniqueEmails(vector<string>& emails) {
     set<string> unique_emails;
-    for(const string& email : emails) {
+    for (const string& email : emails) {
       auto at_pos = email.find_first_of("@");
       string local_part = email.substr(0, at_pos);
       auto plus_pos = local_part.find_first_of("+");
