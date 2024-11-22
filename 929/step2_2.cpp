@@ -2,7 +2,7 @@
 Time Order : O(n)
 Space Order : O(n)
 
-ステートマシン的な開放
+ステートマシン的な解法
 */
 class Solution {
  public:
